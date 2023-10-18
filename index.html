@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Think-Cell Website</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    // specially for Firefox: #1
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelector('.menu-item-search input[type="search"]').addEventListener('blur', () => {
+        document.querySelector('.menu-item-search').classList.remove('focused');
+      })
+    })
+    function showSearch() {
+      document.querySelector('.menu-item-search input[type="search"]').focus();
+      // specially for Firefox: #2
+      document.querySelector('.menu-item-search').classList.add('focused');
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'k' && e.metaKey) {
+        showSearch();
+      }
+    })
+  </script>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <a class="header__logo" href="/">
+        <img alt="Think-Cell" src="./assets/logo.svg" />
+      </a>
+      <div class="header__menu">
+        <span class="header__menu-item menu-item-language">
+          Deutsch
+          <i class="icon chevron-down"></i>
+        </span>
+        <span class="header__menu-item menu-item-search" onclick="showSearch()">
+          <span>Suche</span>
+          <span class="icon-command">⌘K</span>
+          <input type="search" placeholder="Suche"/>
+        </span>
+        <span class="header__menu-item menu-item-login">
+          Anmelden
+        </span>
+      </div>
+    </header>
+    <nav class="top-nav">
+      <div class="top-nav__menu">
+        <a href="/product">Produkt</a>
+        <a href="/bestellen">Bestellen</a>
+        <a href="/download">Download</a>
+        <a href="/resources">Ressourcen</a>
+        <a href="/careers">Karriere</a>
+        <a href="/unternehmen">Unternehmen</a>
+      </div>
+      <a class="button primary" href="/demo">
+        Jetzt kostenlos testen
+      </a>
+    </nav>
+  </div>
+  <main class="content container">
+    <aside class="content__frame">
+      <h1 class="content__frame__heading-text">
+        Powerpoint-Diagramme. <br />
+        Wie sie sein sollten.
+      </h1>
+      <p class="content__frame__text">
+        Mit think-cell erstellen Sie beeindruckende Diagramme in wenigen Minuten, verbessern Ihr Folien-Layout
+        und automatisieren Ihre regelmäßigen Berichte.
+      </p>
+      <a class="button primary" href="/demo">
+        Jetzt kostenlos testen
+      </a>
+    </aside>
+    <div class="content__video">
+      <a href="#">
+        <img alt="Video" src="./assets/video_img.png" />
+      </a>
+    </div>
+  </main>
+  <footer class="footer"></footer>
+</body>
+</html>
